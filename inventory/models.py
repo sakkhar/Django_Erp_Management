@@ -42,18 +42,12 @@ class InventoryItem(models.Model):
         return self.part_number
 
 
+class ItemCrossReference(models.Model):
+    item = models.ForeignKey(InventoryItem, on_delete=models.PROTECT)
+    cross_reference = models.CharField(max_length=100)
 
+    def __unicode__(self):
+        return self.cross_reference
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+class InventoryTag(models.Model):
+    tag
